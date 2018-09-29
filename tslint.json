@@ -1,0 +1,9 @@
+{
+    "extends": "tslint-config-unicorn-science",
+    "rules": {
+      "no-console": false,
+      "quotemark": [true, "double"],
+      "interface-name": [true,"always-prefix"],
+      "curly": [true, "as-needed"]
+    }
+  }

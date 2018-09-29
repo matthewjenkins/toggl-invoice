@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "lib": [
+        "es6",
+        "dom"
+      ],
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "outDir": "dist",
+      "sourceMap": true,
+      "target": "es5",
+      "types": [
+          "node"
+      ]
+    },
+    "include": [
+      "src/**/*.ts"
+    ]
+  }
