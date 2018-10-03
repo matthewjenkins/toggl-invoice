@@ -69,8 +69,8 @@ export default class CreateInvoice {
 
         const writer: InvoiceWriter = new InvoiceWriter({
             client, entries,
-            start: options.start,
-            end: options.end,
+            start: start,
+            end: end,
             invoiceNumber: config.lastInvoice,
             file: filePath
         });

@@ -31,6 +31,3 @@ program
 program.version((pkg as any).version);
 
 program.parse(process.argv);
-
-// if (!program.args.length)
-//     program.help();
