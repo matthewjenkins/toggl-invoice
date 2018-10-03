@@ -9,8 +9,8 @@ import { IGroup, Utils } from "../common/Utils";
 export interface IInvoiceWriterOptions {
     client: IClient;
     entries: Entry[];
-    start: Date;
-    end: Date;
+    start: moment.Moment;
+    end: moment.Moment;
     invoiceNumber: number;
     file: string;
 }
@@ -34,7 +34,9 @@ export default class InvoiceWriter {
         // header info
         doc.fillColor([71, 103, 155], 80).fontSize(28).text("Invoice", { align: "right" });
         doc.fillColor("black").fontSize(10);
-        doc.text(`Date: ${moment().format("LL")}`, { align: "right" });
+        doc.text(`Created: ${moment().format("ll")}`, { align: "right" });
+        doc.text(`Start: ${this.options.start.format("ll")}`, { align: "right" });
+        doc.text(`End: ${this.options.end.format("ll")}`, { align: "right" });
         doc.text(`Invoice: ${Utils.pad(this.options.invoiceNumber.toString(), 5)}`, { align: "right" });
 
         doc.moveDown();
@@ -69,7 +71,7 @@ export default class InvoiceWriter {
             doc.text(billingAddress.phone, { align: "right" });
 
         // details
-        doc.text("Details", 78, 210);
+        doc.moveDown(2);
         doc.font("Details");
         doc.rect(72, doc.y + 5, 467, 5);
         doc.fill([71, 103, 155]);
